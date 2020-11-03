@@ -1,10 +1,16 @@
 import React from 'react';
 
-const TaskAdapter = props => (
+const TaskAdapter = (props) => (
   <ul>
     {props.task.map(
       (oneTask) => 
-      <li key={oneTask.id}>{oneTask.task}</li>)
+        <li key={oneTask.id}>
+          {oneTask.task}
+          <button type="button" 
+        onClick={ () => props.onDeleteTask(oneTask) } >
+          done
+        </button>
+        </li>)
     }
   </ul>
 );
