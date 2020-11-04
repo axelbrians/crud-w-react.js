@@ -1,25 +1,32 @@
-/* form style */
+html, body {
+  background-color: #212024;
+  color: whitesmoke;
+  font-size: 0.94em !important;
+  display: grid;
+}
+
 .taskAppContainer {
   text-align: center;
   margin-left: 20%;
   margin-right: 20%;
+  border: 1.4px solid #5F6368;
+  border-radius: 0.4rem;
 }
 
+
+/* style for form*/
 .myFormContainer {
   align-items: center;
 }
 
-
 .myFormGroup{
-  
   box-sizing: border-box;
   display: inline-block;
-  /* border: 1px solid white; */
+  border: 1.4px solid #5F6368;
+  border-radius: 0.4rem;
 }
 
 .myInput {
-  border: 1.4px solid #5F6368;
-  border-radius: 0.4rem;
   outline: none;
   box-shadow:none !important;
   padding: 0.8rem;
@@ -32,15 +39,38 @@
   border: 0px solid #5F6368;
   color: whitesmoke;
 }
+/* end of style for form */
 
-.mySubmitBtn {
-  display: none;
+/* style for Task */
+.onGoingTask {
+  list-style-type: none;
+}
+/* end of style for Task */
+
+
+/* style for completedTask */
+.completedTaskContainer {
+  display: flex;
+  flex-direction: column;
 }
 
 .completedTaskViewEnable {
   display: inline-block;
+  list-style-type: none;
 }
 
 .completedTaskViewDisable {
   display: none;
+  list-style-type: none;
 }
+
+.btnPosition {
+  position: absolute;
+  bottom: 0;
+  align-self: center;
+}
+
+.btnPositionClicked {
+  position: static;
+}
+/* end of style for completedTask */

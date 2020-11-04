@@ -2,9 +2,8 @@ import React from 'react';
 
 const TaskCompletedAdapter = (props) => (
   <div className={ props.className }>
-    { props.isCompletedTask(props.task) }
   
-  <ul>
+  <ul className={ props.className }>
     {/* mapping each of individual completedTask to holder */}
     {props.task.map(
       (oneTask) => 

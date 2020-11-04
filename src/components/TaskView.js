@@ -4,9 +4,11 @@ import TaskAdapter from './TaskAdapter';
 import TaskCompletedAdapter from './TaskCompletedAdapter';
 
 function TaskView() {
-  const [taskData, setTask] = useState([]);
-  const [taskCompleted, setTaskCompleted] = useState([]);
-  const [completedClass, setCompletedClass ] = useState("completedTaskViewDisable")
+  const [taskData, setTask] = useState([])
+  const [taskCompleted, setTaskCompleted] = useState([])
+  const [completedClass, setCompletedClass] = useState('completedTaskViewDisable')
+  const [btnClass, setBtnClass] = useState("btnPosition")
+  const [isHidden, setIsHidden ] = useState(true)
 
   // handle task that want to be added to lsit
   const handleAddTask = (oneTask) => {
@@ -31,19 +33,24 @@ function TaskView() {
 
   // check if there is any completed task
   const isCompletedTask = (props) => {
-    if(Object.keys(props).length !== 0){
-      return <h3>Completed Task</h3>
-    } else {
-      return null;
-    }
+    // if(Object.keys(props).length !== 0){
+    //   return <h3>Completed Task</h3>
+    // } else {
+    //   return <h3>No Completed Task</h3>
+    // }
+    console.log(Object.keys(props).length)
   }
 
   // function to toggle completed class name
   const toggleCompletedTask = () => {
-    if(completedClass === "completedTaskViewEnable") {
-      setCompletedClass("completedTaskViewDisable");
+    if(isHidden) {
+      setCompletedClass("completedTaskViewEnable")
+      setBtnClass("btnPositionClicked")
+      setIsHidden(false)
     }else {
-      setCompletedClass("completedTaskViewEnable");
+      setCompletedClass("completedTaskViewDisable")
+      setBtnClass("btnPosition")
+      setIsHidden(true)
     }
   }
 
@@ -53,23 +60,31 @@ function TaskView() {
       <h1>Today Task</h1>
       <TaskForm onSubmit={ handleAddTask } />
 
-      {/* button to toggle show and hidden completedTask */}
-      <button
-        onClick={ toggleCompletedTask } >
-        Show completed task
-      </button>
-
       {/* component to show task hasnt been completed */}
       <TaskAdapter
         className=""
         task={ taskData }
         onCompletedTask={ handleCompletedTask } />
+
       
+      <div className="completedTaskContainer">
+      {/* button to toggle show and hidden completedTask */}
+      <button
+        onClick={ toggleCompletedTask }
+        className={ btnClass }>
+        Completed ({Object.keys(taskCompleted).length})
+      </button>
+
       {/* component to show completedTask */}
       <TaskCompletedAdapter
         isCompletedTask={ isCompletedTask }
         className={ completedClass }
         task={ taskCompleted } />
+
+      
+      </div>
+      {/* end of completedTaskContainer */}
+
     </div>
   );
 }

@@ -28,6 +28,7 @@ function TaskForm(props) {
           className=""
           onSubmit={ handleSubmit }>
           <div className="myFormGroup">
+            
             <input
               type="text" 
               placeholder="Insert your task here"
@@ -35,10 +36,6 @@ function TaskForm(props) {
               className="myInput"
               onChange={ handleChange } />
 
-            <input
-              type="submit" 
-              value="Add task"
-              className="mySubmitBtn" />
           </div>
         </form>
       </div>

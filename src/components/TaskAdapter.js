@@ -1,17 +1,19 @@
 import React from 'react';
 
 const TaskAdapter = (props) => (
-  <ul>
+  <ul className="onGoingTask">
     {/* mappping each of unclompletedTask */}
     {props.task.map(
       (oneTask) => 
         <li key={oneTask.id}>
-          {oneTask.task}
+          {/* btn to move task to completedTask */}
           <button 
             type="button" 
             onClick={ () => props.onCompletedTask(oneTask) } >
           done
           </button>
+          
+          {oneTask.task}
         </li>)
         // end of single task contaier
     }
