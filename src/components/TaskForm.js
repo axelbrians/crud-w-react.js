@@ -23,18 +23,25 @@ function TaskForm(props) {
   }
 
     return (
-      <form 
-        className="taskForm" 
-        onSubmit={ handleSubmit }>
-        <input
-          type="text" 
-          placeholder="inset your task here"
-          value={ inputTask }
-          className="taskInput"
-          onChange={ handleChange } />
+      <div className="myFormContainer">
+        <form 
+          className=""
+          onSubmit={ handleSubmit }>
+          <div className="myFormGroup">
+            <input
+              type="text" 
+              placeholder="Insert your task here"
+              value={ inputTask }
+              className="myInput"
+              onChange={ handleChange } />
 
-        <input type="submit" value="Add task" />
-      </form>
+            <input
+              type="submit" 
+              value="Add task"
+              className="mySubmitBtn" />
+          </div>
+        </form>
+      </div>
     );
 };
 
