@@ -12,6 +12,10 @@ function TaskView() {
 
   // handle task that want to be added to lsit
   const handleAddTask = (oneTask) => {
+    if (!oneTask.task || /^\s*$/.test(oneTask.task)) {
+      return;
+    }
+
     const newTaskData = [oneTask, ...taskData];
 
     setTask(newTaskData);

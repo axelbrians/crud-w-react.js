@@ -35,7 +35,7 @@ function TaskForm(props) {
               value={ inputTask }
               className="myInput"
               onChange={ handleChange } />
-
+            
           </div>
         </form>
       </div>

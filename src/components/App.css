@@ -13,6 +13,20 @@ html, body {
   border-radius: 0.4rem;
 }
 
+/* scrollbar syle */
+.style-3::-webkit-scrollbar-track{
+	background-color: #202124;
+}
+
+.style-3::-webkit-scrollbar{
+	width: 9px;
+	background-color: #202124;
+}
+
+.style-3::-webkit-scrollbar-thumb{
+	background-color: #666666;
+}
+/* end of scrollbar style */
 
 /* style for form*/
 .myFormContainer {
