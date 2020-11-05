@@ -5,10 +5,6 @@ function TaskForm(props) {
 
   const handleSubmit = event => {
     event.preventDefault();
-    // if(!event.target.value){
-    //   setInput('');
-    //   return;
-    // }
 
     props.onSubmit({
       task: inputTask,

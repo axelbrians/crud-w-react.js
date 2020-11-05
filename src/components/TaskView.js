@@ -6,9 +6,12 @@ import TaskCompletedAdapter from './TaskCompletedAdapter';
 function TaskView() {
   const [taskData, setTask] = useState([])
   const [taskCompleted, setTaskCompleted] = useState([])
+  const [isHidden, setIsHidden ] = useState(true)
+
+
+  
   const [completedClass, setCompletedClass] = useState('completedTaskViewDisable')
   const [btnClass, setBtnClass] = useState("btnPosition")
-  const [isHidden, setIsHidden ] = useState(true)
 
   // handle task that want to be added to lsit
   const handleAddTask = (oneTask) => {
@@ -27,7 +30,7 @@ function TaskView() {
     const newTaskCompleted = [oneTask, ...taskCompleted];
 
     setTaskCompleted(newTaskCompleted);
-    console.log(...taskCompleted);
+    // console.log(...taskCompleted);
 
     const newTaskData = taskData.filter(
       taskData => taskData.id !== oneTask.id);
