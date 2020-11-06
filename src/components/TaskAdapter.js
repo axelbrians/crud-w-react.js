@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import TaskForm from './TaskForm';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function TaskAdapter(props) {
   const [editStatus, setEditStatus] = useState(0);
   const [targetId, setTargetId] = useState();
-  const [targetTask, setTargetTask] = useState();
 
   const wrapperFun = (oneTask) => {
     setEditStatus(1);
@@ -29,23 +29,34 @@ function TaskAdapter(props) {
   }
 
   return(
-    <div>
+    <div >
       {/* mappping each of unclompletedTask */}
       {props.task.map(
         (oneTask) => 
-          <div key={oneTask.id}>
+          <div 
+            key={oneTask.id}
+            className="taskCard"  >
             
             {oneTask.task}
 
-            {/* btn to move task to completedTask */}
-            <button onClick={ () => props.onCompletedTask(oneTask) }>
-              Done
-            </button>
+            <div className="iconContainer" >
+              {/* <button onClick={ () => props.onCompletedTask(oneTask) }>
+                Done
+              </button> */}
+              <a onClick={ () => props.onCompletedTask(oneTask) }
+              className="myIcon" >
+              <FontAwesomeIcon icon="check" />
+              </a>
 
-            <button onClick={ () => wrapperFun(oneTask) }>
-              Edit
-            </button>
+              {/* <button onClick={ () => wrapperFun(oneTask) } >
+                Edit
+              </button> */}
+              <a onClick={ () => wrapperFun(oneTask) }
+              className="myIcon" >
+              <FontAwesomeIcon icon="pen" />
+              </a>
 
+            </div>
           </div>)
           // end of single task contaier
         }

@@ -1,7 +1,24 @@
 html, body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #212024;
   color: whitesmoke;
-  font-size: 1.1em !important;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+
+.taskAppContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  min-width: 400px;
+  max-width: 600px;
+  border: 2px solid yellow;
 }
 
 
@@ -22,20 +39,64 @@ html, body {
 
 
 /* style for form*/
+.taskInput {
+  -webkit-transition: all 0.20s ease-in-out;
+  -moz-transition: all 0.20s ease-in-out;
+  -ms-transition: all 0.20s ease-in-out;
+  -o-transition: all 0.20s ease-in-out;
+  outline: none;
+  padding: 0.8rem;
+  background-color: #202124;
+  color: whitesmoke;
+  border: 1.4px solid #5F6368;
+  border-radius: 6px;
+  width: 275px;
+}
 
+.taskInput:focus{
+  box-shadow: 0 0 5px rgba(145, 144, 144, 0.829);
+}
 /* end of style for form */
 
 
 /* style for Task */
+.taskCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px auto;
+  padding: 16px;
+  width: 90%;
+  border: 2px solid white;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.myIcon {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 25px;
+  vertical-align: middle;
+  padding: 10px;
+  -webkit-transition: background-color 0.2s ease-out;
+  -moz-transition: background-color 0.2s ease-out;
+  -o-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+}
+
+.myIcon:hover {
+  background-color: #69696988;
+}
 
 /* end of style for Task */
 
 
 /* style for completedTask */
-.completedTaskContainer {
-
-}
-
 .completedTaskViewEnable {
   display: inline;
 }
@@ -44,13 +105,23 @@ html, body {
   display: none;
 }
 
+.taskCompleted {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px auto;
+  padding: 16px;
+  width: 90%;
+  text-decoration: line-through;
+}
+
 .btnPosition {
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   align-self: center;
 }
 
 .btnPositionClicked {
-  position: static;
+  /* position: static; */
 }
 /* end of style for completedTask */

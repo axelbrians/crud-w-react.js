@@ -36,16 +36,13 @@ function TaskForm(props) {
 
     return (
         <form onSubmit={ handleSubmit }>
-          <div>
-            
             <input
+              className="taskInput"
               type="text" 
               placeholder={ props.placeHolder }
               value={ inputTask }
               onChange={ handleChange }
               ref={ taskInput } />
-            
-          </div>
         </form>
     );
 };
