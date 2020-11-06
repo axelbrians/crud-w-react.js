@@ -63,7 +63,7 @@ function TaskView() {
 
 
   return (
-    <div>
+    <div className="">
       <h1>Today Task</h1>
       <TaskForm onSubmit={ handleAddTask } />
 

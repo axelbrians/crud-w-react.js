@@ -4,22 +4,23 @@ import TaskForm from './TaskForm';
 function TaskAdapter(props) {
 
   return(
-    <div className="onGoingTask">
+    <div className="taskContainer">
       {/* mappping each of unclompletedTask */}
       {props.task.map(
         (oneTask) => 
-          <li key={oneTask.id}>
-
-            {/* btn to move task to completedTask */}
-            <button 
-              type="button" 
-              onClick={ () => props.onCompletedTask(oneTask) } >
-            done
-            </button>
+          <div
+            className="taskCard" 
+            key={oneTask.id}>
             
             {oneTask.task}
 
-          </li>)
+            {/* btn to move task to completedTask */}
+            <a onClick={ () => props.onCompletedTask(oneTask) }
+              className="iconHolder" >
+            <i></i>
+            </a>
+
+          </div>)
           // end of single task contaier
         }
         {/* end of mapping */}
