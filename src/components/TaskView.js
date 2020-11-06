@@ -69,7 +69,9 @@ function TaskView() {
   return (
     <div className="">
       <h1>Today Task</h1>
-      <TaskForm onSubmit={ handleAddTask } />
+      <TaskForm 
+        onSubmit={ handleAddTask }
+        placeHolder={ "Insert your task here" } />
 
       {/* component to show task hasnt been completed */}
       <TaskAdapter

@@ -4,6 +4,7 @@ import TaskForm from './TaskForm';
 function TaskAdapter(props) {
   const [editStatus, setEditStatus] = useState(0);
   const [targetId, setTargetId] = useState();
+  const [targetTask, setTargetTask] = useState();
 
   const wrapperFun = (oneTask) => {
     setEditStatus(1);
@@ -23,7 +24,8 @@ function TaskAdapter(props) {
         <TaskForm 
           onSubmit={ props.onEditTask }
           targetId={ targetId }
-          resetFun={ resetFun } />)
+          resetFun={ resetFun }
+          placeHolder={ '' } />)
   }
 
   return(

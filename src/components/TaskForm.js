@@ -1,7 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 function TaskForm(props) {
   const [inputTask, setInput] = useState('');
+  const taskInput = useRef(null);
+
+  useEffect(() => {
+    if (taskInput.current){
+     taskInput.current.focus();
+    }
+  }, []);
+
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -16,6 +24,7 @@ function TaskForm(props) {
         task: inputTask,
         id: props.targetId
       });
+      
       props.resetFun();
     }
     setInput('');
@@ -31,9 +40,10 @@ function TaskForm(props) {
             
             <input
               type="text" 
-              placeholder="Insert your task here"
+              placeholder={ props.placeHolder }
               value={ inputTask }
-              onChange={ handleChange } />
+              onChange={ handleChange }
+              ref={ taskInput } />
             
           </div>
         </form>
