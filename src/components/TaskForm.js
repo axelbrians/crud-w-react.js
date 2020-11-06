@@ -34,6 +34,7 @@ function TaskForm(props) {
     setInput(event.target.value);
   }
 
+  if(!props.targetId){
     return (
         <form onSubmit={ handleSubmit }>
             <input
@@ -45,6 +46,20 @@ function TaskForm(props) {
               ref={ taskInput } />
         </form>
     );
+  }else {
+    return (
+      
+      <form onSubmit={ handleSubmit }>
+          <input
+            className="taskEdit"
+            type="text" 
+            placeholder={ props.placeHolder }
+            value={ inputTask }
+            onChange={ handleChange }
+            ref={ taskInput } />
+      </form>
+  );
+  }
 };
 
 export default TaskForm;

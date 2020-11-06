@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import TaskForm  from './TaskForm';
 import TaskAdapter from './TaskAdapter';
 import TaskCompletedAdapter from './TaskCompletedAdapter';
@@ -11,7 +12,7 @@ function TaskView() {
 
   
   const [completedClass, setCompletedClass] = useState('completedTaskViewDisable')
-  const [btnClass, setBtnClass] = useState("btnPosition")
+  const [iconClass, setIconClass] = useState('angle-down')
 
   // handle task that want to be added to lsit
   const handleAddTask = (oneTask) => {
@@ -56,11 +57,11 @@ function TaskView() {
   const toggleCompletedTask = () => {
     if(isHidden) {
       setCompletedClass("completedTaskViewEnable")
-      setBtnClass("btnPositionClicked")
+      setIconClass("angle-up")
       setIsHidden(false)
     }else {
       setCompletedClass("completedTaskViewDisable")
-      setBtnClass("btnPosition")
+      setIconClass("angle-down")
       setIsHidden(true)
     }
   }
@@ -80,23 +81,19 @@ function TaskView() {
         onCompletedTask={ handleCompletedTask }
         onEditTask={ handleEditTask } />
 
-      
-      <div className="completedTaskContainer">
-      {/* button to toggle show and hidden completedTask */}
-      <button
-        onClick={ toggleCompletedTask }
-        className={ btnClass }>
+      <a onClick={ toggleCompletedTask }
+           className="completedToggle">
+        <span className="iconSpacing" >
         Completed ({Object.keys(taskCompleted).length})
-      </button>
+        </span>
+        <FontAwesomeIcon icon={ iconClass } />
+      </a>
+      
 
       {/* component to show completedTask */}
       <TaskCompletedAdapter
         className={ completedClass }
         task={ taskCompleted } />
-
-      
-      </div>
-      {/* end of completedTaskContainer */}
 
     </div>
   );

@@ -40,17 +40,11 @@ function TaskAdapter(props) {
             {oneTask.task}
 
             <div className="iconContainer" >
-              {/* <button onClick={ () => props.onCompletedTask(oneTask) }>
-                Done
-              </button> */}
               <a onClick={ () => props.onCompletedTask(oneTask) }
               className="myIcon" >
               <FontAwesomeIcon icon="check" />
               </a>
 
-              {/* <button onClick={ () => wrapperFun(oneTask) } >
-                Edit
-              </button> */}
               <a onClick={ () => wrapperFun(oneTask) }
               className="myIcon" >
               <FontAwesomeIcon icon="pen" />

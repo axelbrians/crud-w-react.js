@@ -18,7 +18,7 @@ html, body {
   justify-content: center;
   min-width: 400px;
   max-width: 600px;
-  border: 2px solid yellow;
+  /* border: 2px solid yellow; */
 }
 
 
@@ -56,6 +56,25 @@ html, body {
 .taskInput:focus{
   box-shadow: 0 0 5px rgba(145, 144, 144, 0.829);
 }
+
+.taskEdit {
+  -webkit-transition: all 0.20s ease-in-out;
+  -moz-transition: all 0.20s ease-in-out;
+  -ms-transition: all 0.20s ease-in-out;
+  -o-transition: all 0.20s ease-in-out;
+  outline: none;
+  padding: 0.8rem;
+  background-color: #202124;
+  color: whitesmoke;
+  border: 1.4px solid #5F6368;
+  border-radius: 6px;
+  width: 275px;
+  margin-top: 15px;
+}
+
+.taskEdit:focus{
+  box-shadow: 0 0 5px rgba(145, 144, 144, 0.829);
+}
 /* end of style for form */
 
 
@@ -64,10 +83,15 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 4px auto;
-  padding: 16px;
+  margin: 10px auto;
+  padding: 10px;
+  padding-left: 20px;
   width: 90%;
-  border: 2px solid white;
+  border: 1px solid rgb(165, 163, 163);
+  border-radius: 8px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .iconContainer {
@@ -97,7 +121,27 @@ html, body {
 
 
 /* style for completedTask */
+
+.completedToggle {
+  display: block;
+  margin-top: 20px;
+}
+
+.iconSpacing {
+  margin-right: 20px;
+}
+
+.toggleCompletedClass {
+  text-align: center;
+  align-items: center;
+  margin: 10px auto;
+  padding: 15px;
+  width: 90%;
+  border: 2px solid white;
+}
+
 .completedTaskViewEnable {
+  margin-top: 20px;
   display: inline;
 }
 
@@ -109,19 +153,15 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4px auto;
-  padding: 16px;
+  margin: 8px auto;
+  padding: 15px;
   width: 90%;
   text-decoration: line-through;
+  border: 1px solid rgb(165, 163, 163);
+  border-radius: 8px;
 }
 
-.btnPosition {
-  /* position: absolute; */
-  bottom: 0;
-  align-self: center;
+.btnClass {
+
 }
 
-.btnPositionClicked {
-  /* position: static; */
-}
-/* end of style for completedTask */
