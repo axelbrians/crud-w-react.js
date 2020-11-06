@@ -38,14 +38,18 @@ function TaskView() {
     setTask(newTaskData);
   }
 
-  // check if there is any completed task
-  const isCompletedTask = (props) => {
-    // if(Object.keys(props).length !== 0){
-    //   return <h3>Completed Task</h3>
-    // } else {
-    //   return <h3>No Completed Task</h3>
-    // }
-    console.log(Object.keys(props).length)
+  const handleEditTask = (oneTask) => {
+    if (!oneTask.task || /^\s*$/.test(oneTask.task)) {
+      return;
+    }
+
+    const taskIndex = taskData.findIndex(element => element.id === oneTask.id);
+
+    let newTaskData = [...taskData];
+
+    newTaskData[taskIndex] = {...newTaskData[taskIndex], task: oneTask.task};
+
+    setTask(newTaskData);
   }
 
   // function to toggle completed class name
@@ -71,7 +75,8 @@ function TaskView() {
       <TaskAdapter
         className=""
         task={ taskData }
-        onCompletedTask={ handleCompletedTask } />
+        onCompletedTask={ handleCompletedTask }
+        onEditTask={ handleEditTask } />
 
       
       <div className="completedTaskContainer">
@@ -84,7 +89,6 @@ function TaskView() {
 
       {/* component to show completedTask */}
       <TaskCompletedAdapter
-        isCompletedTask={ isCompletedTask }
         className={ completedClass }
         task={ taskCompleted } />
 

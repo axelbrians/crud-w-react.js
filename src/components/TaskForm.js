@@ -6,11 +6,18 @@ function TaskForm(props) {
   const handleSubmit = event => {
     event.preventDefault();
 
-    props.onSubmit({
-      task: inputTask,
-      id: Math.floor(Math.random() * 1000000000)
-    })
-
+    if(!props.targetId){
+      props.onSubmit({
+        task: inputTask,
+        id: Math.floor(Math.random() * 1000000000)
+      })
+    }else {
+      props.onSubmit({
+        task: inputTask,
+        id: props.targetId
+      });
+      props.resetFun();
+    }
     setInput('');
   }
 
@@ -19,22 +26,17 @@ function TaskForm(props) {
   }
 
     return (
-      <div className="myFormContainer">
-        <form 
-          className=""
-          onSubmit={ handleSubmit }>
-          <div className="myFormGroup">
+        <form onSubmit={ handleSubmit }>
+          <div>
             
             <input
               type="text" 
               placeholder="Insert your task here"
               value={ inputTask }
-              className="myInput"
               onChange={ handleChange } />
             
           </div>
         </form>
-      </div>
     );
 };
 

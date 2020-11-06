@@ -4,17 +4,6 @@ html, body {
   font-size: 1.1em !important;
 }
 
-.taskAppContainer {
-  text-align: center;
-  margin-left: 20%;
-  margin-right: 20%;
-  border: 1.4px solid #5F6368;
-  border-radius: 0.4rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 
 /* scrollbar syle */
 .style-3::-webkit-scrollbar-track{
@@ -31,88 +20,28 @@ html, body {
 }
 /* end of scrollbar style */
 
+
 /* style for form*/
-.myFormContainer {
-  align-items: center;
-}
 
-.myFormGroup{
-  box-sizing: border-box;
-  display: inline-block;
-  border: 1.4px solid #5F6368;
-  border-radius: 0.4rem;
-}
-
-.myInput {
-  outline: none;
-  box-shadow:none !important;
-  padding: 0.8rem;
-  background-color: #202124!important;
-  color: whitesmoke;
-  border: none;
-}
-
-.myInput:focus {
-  border: 0px solid #5F6368;
-  color: whitesmoke;
-}
 /* end of style for form */
 
+
 /* style for Task */
-.taskContainer {
-  /* border: 2px solid red; */
-  flex-direction: column;
-  min-width: 200px;
-  max-width: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.taskCard {
-  /* border: 2px solid green; */
-  border-radius: 4px;
-  background-color: rgb(74, 72, 77);
-  padding: 5px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.iconHolder {
-  margin-left: 20px;
-  width: 30px !important;
-  height: 30px !important;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 30px !important;
-  vertical-align: middle;
-  padding: 10px;
-  transition: background-color 300ms ease;
-  background-color: #c0c0c0;;
-}
-
-.iconHolder:hover {
-  background-color: #e0e0e0;
-}
 /* end of style for Task */
 
 
 /* style for completedTask */
 .completedTaskContainer {
-  display: flex;
-  flex-direction: column;
+
 }
 
 .completedTaskViewEnable {
-  display: inline-block;
-  list-style-type: none;
+  display: inline;
 }
 
 .completedTaskViewDisable {
   display: none;
-  list-style-type: none;
 }
 
 .btnPosition {

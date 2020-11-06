@@ -2,23 +2,47 @@ import React, { useState } from 'react';
 import TaskForm from './TaskForm';
 
 function TaskAdapter(props) {
+  const [editStatus, setEditStatus] = useState(0);
+  const [targetId, setTargetId] = useState();
+
+  const wrapperFun = (oneTask) => {
+    setEditStatus(1);
+
+    setTargetId(oneTask.id);
+  }
+
+  const resetFun = () => {
+    setEditStatus(0);
+
+    setTargetId(0);
+  }
+
+
+  if(editStatus){
+    return (
+        <TaskForm 
+          onSubmit={ props.onEditTask }
+          targetId={ targetId }
+          resetFun={ resetFun } />)
+  }
 
   return(
-    <div className="taskContainer">
+    <div>
       {/* mappping each of unclompletedTask */}
       {props.task.map(
         (oneTask) => 
-          <div
-            className="taskCard" 
-            key={oneTask.id}>
+          <div key={oneTask.id}>
             
             {oneTask.task}
 
             {/* btn to move task to completedTask */}
-            <a onClick={ () => props.onCompletedTask(oneTask) }
-              className="iconHolder" >
-            <i></i>
-            </a>
+            <button onClick={ () => props.onCompletedTask(oneTask) }>
+              Done
+            </button>
+
+            <button onClick={ () => wrapperFun(oneTask) }>
+              Edit
+            </button>
 
           </div>)
           // end of single task contaier
